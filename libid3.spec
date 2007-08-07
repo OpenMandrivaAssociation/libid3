@@ -1,9 +1,10 @@
 %define	major 0
-%define libname	%mklibname id3_ %{major}
+%define libname	%mklibname id 3 %{major}
+%define develname %mklibname -d id3
 
 Summary:	ID3 Parsing Library
 Name:		libid3
-Version:	1.1
+Version:	1.2
 Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD-like
@@ -21,15 +22,15 @@ Group:          System/Libraries
 %description -n	%{libname}
 Library for parsing ID3 tags from files or sections of memory.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the ID3 Parsing Library
 Group:		Development/C
-Obsoletes:	%{name}-devel
 Provides:	%{name}-devel = %{version}
 Conflicts:	libid3_3.8-devel
 Requires:	%{libname} = %{version}
+Obsoletes:	%{libname}-devel
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 Library for parsing ID3 tags from files or sections of memory.
 
 This package contains the static libid3 library and its header
@@ -63,7 +64,7 @@ install -d %{buildroot}%{_mandir}/man{1,3}
 
 %makeinstall_std
 
-install -m0755 id3-test/.libs/id3test %{buildroot}%{_bindir}/
+install -m0755 tests/id3test %{buildroot}%{_bindir}/
 
 install -m0644 libID3.3 %{buildroot}%{_mandir}/man3/
 install -m0644 tagpuller.1 %{buildroot}%{_mandir}/man1/
@@ -78,9 +79,9 @@ install -m0644 tagpuller.1 %{buildroot}%{_mandir}/man1/
 %files -n %{libname}
 %defattr(-,root,root)
 %doc COPYING ChangeLog README TODO
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.so
@@ -90,6 +91,5 @@ install -m0644 tagpuller.1 %{buildroot}%{_mandir}/man1/
 
 %files tools
 %defattr(-,root,root)
-%{_bindir}/tagpuller
-%{_bindir}/id3test
+%{_bindir}/*
 %{_mandir}/man1/*
