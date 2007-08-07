@@ -49,7 +49,7 @@ This package contains various files using the ID3 Parsing Library.
 
 %build
 
-%configure2_5x
+%configure2_5x  --disable-static
 
 %make
 
