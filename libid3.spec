@@ -85,7 +85,6 @@ install -m0644 tagpuller.1 %{buildroot}%{_mandir}/man1/
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_mandir}/man3/*
 
