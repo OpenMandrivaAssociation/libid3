@@ -1,6 +1,6 @@
 %define	major 0
 %define libname	%mklibname id 3 %{major}
-%define develname %mklibname -d id3
+%define develname %mklibname -d id 3 %{major}
 
 Summary:	ID3 Parsing Library
 Name:		libid3
@@ -27,8 +27,8 @@ Summary:	Static library and header files for the ID3 Parsing Library
 Group:		Development/C
 Provides:	%{name}-devel = %{version}
 Conflicts:	libid3_3.8-devel
+Provides:	lib%{name}_%{major}-devel = %{version}
 Requires:	%{libname} = %{version}
-Obsoletes:	%{libname}-devel
 
 %description -n	%{develname}
 Library for parsing ID3 tags from files or sections of memory.
