@@ -49,6 +49,9 @@ This package contains various files using the ID3 Parsing Library.
 
 %build
 
+aclocal
+autoconf
+automake
 %configure2_5x  --disable-static
 
 %make
