@@ -10,7 +10,6 @@ Group:		System/Libraries
 License:	BSD-like
 URL:		http://www.tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Library for parsing ID3 tags from files or sections of memory.
