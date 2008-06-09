@@ -72,9 +72,13 @@ install -m0755 tests/id3test %{buildroot}%{_bindir}/
 install -m0644 libID3.3 %{buildroot}%{_mandir}/man3/
 install -m0644 tagpuller.1 %{buildroot}%{_mandir}/man1/
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
