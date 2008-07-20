@@ -5,12 +5,12 @@
 Summary:	ID3 Parsing Library
 Name:		libid3
 Version:	1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	BSD-like
 URL:		http://www.tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Library for parsing ID3 tags from files or sections of memory.
