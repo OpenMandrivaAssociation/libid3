@@ -1,15 +1,16 @@
-%define	major 0
-%define libname	%mklibname id 3 %{major}
-%define develname %mklibname -d id 3 %{major}
+%define	major 1
+%define libname	%mklibname id3_ %{major}
+%define develname %mklibname -d id3_ %{major}
 
 Summary:	ID3 Parsing Library
 Name:		libid3
 Version:	1.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	BSD-like
 URL:		http://www.tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.bz2
+Patch0:		libid3-1.2-soversion.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -18,6 +19,7 @@ Library for parsing ID3 tags from files or sections of memory.
 %package -n	%{libname}
 Summary:	ID3 Parsing Library
 Group:          System/Libraries
+Obsoletes:	%{_lib}id3_0 < %{version}-%{release}
 
 %description -n	%{libname}
 Library for parsing ID3 tags from files or sections of memory.
@@ -29,6 +31,7 @@ Provides:	%{name}-devel = %{version}
 Conflicts:	libid3_3.8-devel
 Provides:	lib%{name}_%{major}-devel = %{version}
 Requires:	%{libname} = %{version}
+Obsoletes:	%{_lib}id3_0-devel < %{version}-%{release}
 
 %description -n	%{develname}
 Library for parsing ID3 tags from files or sections of memory.
@@ -44,16 +47,12 @@ Group:		Sound
 This package contains various files using the ID3 Parsing Library.
 
 %prep
-
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 
 %build
-
-aclocal
-autoconf
-automake
+autoreconf -fi
 %configure2_5x  --disable-static
-
 %make
 
 # make the man pages
