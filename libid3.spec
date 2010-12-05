@@ -5,7 +5,7 @@
 Summary:	ID3 Parsing Library
 Name:		libid3
 Version:	1.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Libraries
 License:	BSD-like
 URL:		http://www.tangent.org/
