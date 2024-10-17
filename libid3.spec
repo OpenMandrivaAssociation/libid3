@@ -8,7 +8,7 @@ Version:	1.2
 Release:	8
 Group:		System/Libraries
 License:	BSD-like
-URL:		http://www.tangent.org/
+URL:		https://www.tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.bz2
 Patch0:		libid3-1.2-soversion.patch
 
